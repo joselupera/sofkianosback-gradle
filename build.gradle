@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.1.6.RELEASE'
 	id 'java'
 	id 'jacoco'
-	id 'org.sonarqube' version '2.6.1'
+	id 'org.sonarqube' version '2.7'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -43,10 +43,6 @@ jacocoTestReport {
 sonarqube {
 	properties {
 		property "sonar.projectName", "Sofka Employees"
-		property "sonar.projectKey", "sofkaemployee"
-		property "sonar.java.source", "1.6"
-		property "sonar.java.target", "1.6"
 		property "sonar.scm.disabled", "True"
-		property "sonar.jacoco.reportPath", "${buildDir}/jacoco/test.exec"
 	}
 }

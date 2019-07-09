@@ -42,7 +42,7 @@ public class SofkianoServiceTest {
     @Test
     public void testFindById(){
         Mockito.when(sofkianoRepository.findByid(sofkiano.getId())).thenReturn(sofkiano);
-        Assert.assertEquals(sofkiano, sofkianoService.getOne(sofkiano.getId()));
+        Assert.assertEquals("Nuevo mensaje", sofkiano, sofkianoService.getOne(sofkiano.getId()));
     }
 
     @Test
@@ -54,26 +54,26 @@ public class SofkianoServiceTest {
     @Test
     public void testDelete(){
         Date date = new Date();
-        Sofkiano sofkiano = new Sofkiano ("id", "nombre", "lastname", "",1.0,
-                2.0,3.0,"","",4.0,5.0,6.0,
-                7.0,8.0,9.0,10.0,"",11.0, date);
+        Sofkiano sofkiano = new Sofkiano ("id", "nombre", "lastname", "a",1.0,
+                2.0,3.0,"a","a",4.0,5.0,6.0,
+                7.0,8.0,9.0,10.0,"a",11.0, date);
         Mockito.when(sofkianoRepository.existsById(sofkiano.getId())).thenReturn(true);
-        Assert.assertEquals(true, sofkianoService.delete(sofkiano.getId()));
-        Assert.assertEquals(false, sofkianoService.delete(null));
-        Assert.assertEquals(false, sofkianoService.delete("diferenteId"));
+        Assert.assertEquals("Nuevo mensaje",true, sofkianoService.delete(sofkiano.getId()));
+        Assert.assertEquals("Nuevo mensaje",false, sofkianoService.delete(null));
+        Assert.assertEquals("Nuevo mensaje",false, sofkianoService.delete("diferenteId"));
     }
 
     @Test
     public void testUpdate(){
         Date date = new Date();
         Sofkiano sofkiano = new Sofkiano("id", "nombre", "lastname", "qwerqr",1.0,
-                2.0,3.0,"","",4.0,5.0,6.0,
-                7.0,8.0,9.0,10.0,"",11.0, date);
-        Sofkiano sofkiano1 = new Sofkiano("id", "nombre1", "lastname1", "",1.0,
-                2.0,3.0,"","",4.0,5.0,6.0,
-                7.0,8.0,9.0,10.0,"",11.0, date);
+                2.0,3.0,"a","a",4.0,5.0,6.0,
+                7.0,8.0,9.0,10.0,"a",11.0, date);
+        Sofkiano sofkiano1 = new Sofkiano("id", "nombre1", "lastname1", "a",1.0,
+                2.0,3.0,"a","a",4.0,5.0,6.0,
+                7.0,8.0,9.0,10.0,"a",11.0, date);
         Mockito.when(sofkianoRepository.existsById(sofkiano.getId())).thenReturn(true);
-        Assert.assertEquals(sofkiano, sofkianoService.update(sofkiano.getId(), sofkiano));
-        Assert.assertNotEquals(sofkiano1, sofkianoService.update("id", sofkiano));
+        Assert.assertEquals("Nuevo mensaje", sofkiano, sofkianoService.update(sofkiano.getId(), sofkiano));
+        Assert.assertNotEquals("Nuevo mensaje", sofkiano1, sofkianoService.update("id", sofkiano));
     }
 }
