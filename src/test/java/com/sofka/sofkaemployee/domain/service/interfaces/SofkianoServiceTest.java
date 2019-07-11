@@ -35,7 +35,6 @@ public class SofkianoServiceTest {
     @Test
     public void testGetAll(){
         List<Sofkiano> sofkianos = new ArrayList<>();
-//        Mockito.when(sofkianoRepository.findAll()).thenReturn(sofkianos);
         Assertions.assertThat(sofkianoService.getAll()).isEqualTo(sofkianos);
     }
 
