@@ -1,4 +1,4 @@
-package com.sofka.sofkaemployee.domain;
+package com.sofka.sofkaemployee.domain.service.interfaces;
 
 import com.sofka.sofkaemployee.domain.model.Sofkiano;
 import com.sofka.sofkaemployee.domain.service.impl.SofkianoServiceImpl;

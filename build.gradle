@@ -25,6 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.modelmapper:modelmapper:2.3.5'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -44,5 +45,8 @@ sonarqube {
 	properties {
 		property "sonar.projectName", "Sofka Employees"
 		property "sonar.scm.disabled", "True"
+		property "sonar.java.source", "1.6"
+		property "sonar.java.target", "1.6"
+		property "sonar.jacoco.reportPath", "${buildDir}/jacoco/test.exec"
 	}
 }

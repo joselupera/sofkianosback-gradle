@@ -26,37 +26,37 @@ public class SofkianoController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/sofkianos")
-    ResponseEntity<Iterable<Sofkiano>> getSofkiano() {
+    public ResponseEntity<Iterable<Sofkiano>> getSofkiano() {
         return new ResponseEntity<>(sofkianoService.getAll(), HttpStatus.OK);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value = "/sofkianos/sort", params = {"name"})
-    ResponseEntity<Iterable<Sofkiano>> sortingSofkiano() {
+    public ResponseEntity<Iterable<Sofkiano>> sortingSofkiano() {
         return new ResponseEntity<>(sofkianoService.getAll(), HttpStatus.OK);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value="/sofkianos/{id}")
-    ResponseEntity<Sofkiano> getSofkianoById(@PathVariable("id") String id){
+    public ResponseEntity<Sofkiano> getSofkianoById(@PathVariable("id") String id){
         return new ResponseEntity<>(sofkianoService.getOne(id), HttpStatus.OK);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value="/sofkianos")
-    ResponseEntity<Sofkiano> addSofkiano(@RequestBody Sofkiano sofkiano) {
+    public ResponseEntity<Sofkiano> addSofkiano(@RequestBody Sofkiano sofkiano) {
         return new ResponseEntity<>(sofkianoService.create(sofkiano), HttpStatus.CREATED);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(value="/sofkianos/{id}")
-    ResponseEntity<?> deleteSofkiano(@PathVariable String id){
+    public ResponseEntity<Object> deleteSofkiano(@PathVariable String id){
         return new ResponseEntity<>(sofkianoService.delete(id), HttpStatus.NO_CONTENT);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping(value="/sofkianos/{id}")
-    ResponseEntity<Sofkiano> updateSofkiano(@PathVariable String id, @RequestBody Sofkiano sofkiano) {
+    public ResponseEntity<Sofkiano> updateSofkiano(@PathVariable String id, @RequestBody Sofkiano sofkiano) {
         return new ResponseEntity<>(sofkianoService.update(id, sofkiano), HttpStatus.OK);
     }
 
